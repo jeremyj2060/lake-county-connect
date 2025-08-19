@@ -75,8 +75,8 @@ export default {
 				'gradient-hero': 'var(--gradient-hero)'
 			},
 			boxShadow: {
-				'glow-primary': 'var(--glow-primary)',
-				'glow-accent': 'var(--glow-accent)'
+				'glow-primary': 'var(--shadow-glow-primary)',
+				'glow-accent': 'var(--shadow-glow-accent)'
 			},
 			keyframes: {
 				'accordion-down': {
@@ -100,8 +100,8 @@ export default {
 					'50%': { transform: 'translateY(-20px)' }
 				},
 				'pulse-glow': {
-					'0%, 100%': { boxShadow: 'var(--glow-primary)' },
-					'50%': { boxShadow: 'var(--glow-accent)' }
+					'0%, 100%': { boxShadow: 'var(--shadow-glow-primary)' },
+					'50%': { boxShadow: 'var(--shadow-glow-accent)' }
 				}
 			},
 			animation: {

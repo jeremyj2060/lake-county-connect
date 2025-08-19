@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ArrowLeft, Search, Users } from "lucide-react";
 import { Link } from "react-router-dom";
-import { supabase } from "@/lib/supabase";
+import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 
 interface Student {
@@ -26,31 +26,19 @@ const Students = () => {
   }, []);
 
   const fetchStudents = async () => {
-    if (!supabase) {
-      toast({
-        title: "Setup Required",
-        description: "Please connect to Supabase to view students.",
-        variant: "destructive",
-      });
+    // Mock data for demo - replace with real Supabase query once database is set up
+    const mockStudents = [
+      { id: "1", name: "Alex Johnson", school: "Libertyville High School", email: "alex.j@lhs.edu" },
+      { id: "2", name: "Sarah Chen", school: "Vernon Hills High School", email: "s.chen@vhhs.edu" },
+      { id: "3", name: "Mike Rodriguez", school: "Warren Township High School", email: "m.rodriguez@wths.edu" },
+      { id: "4", name: "Emma Davis", school: "Stevenson High School", email: "e.davis@shs.edu" },
+      { id: "5", name: "Jordan Wilson", school: "Libertyville High School", email: "j.wilson@lhs.edu" },
+    ];
+    
+    setTimeout(() => {
+      setStudents(mockStudents);
       setLoading(false);
-      return;
-    }
-
-    const { data, error } = await supabase
-      .from('profiles')
-      .select('id, name, school, email')
-      .order('name');
-
-    if (error) {
-      toast({
-        title: "Error",
-        description: "Failed to load students",
-        variant: "destructive",
-      });
-    } else {
-      setStudents(data || []);
-    }
-    setLoading(false);
+    }, 1000);
   };
 
   const filteredStudents = students.filter(student =>
