@@ -26,6 +26,16 @@ const Students = () => {
   }, []);
 
   const fetchStudents = async () => {
+    if (!supabase) {
+      toast({
+        title: "Setup Required",
+        description: "Please connect to Supabase to view students.",
+        variant: "destructive",
+      });
+      setLoading(false);
+      return;
+    }
+
     const { data, error } = await supabase
       .from('profiles')
       .select('id, name, school, email')

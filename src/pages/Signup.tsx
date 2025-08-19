@@ -29,6 +29,16 @@ const Signup = () => {
     e.preventDefault();
     setLoading(true);
 
+    if (!supabase) {
+      toast({
+        title: "Setup Required",
+        description: "Please connect to Supabase to enable authentication.",
+        variant: "destructive",
+      });
+      setLoading(false);
+      return;
+    }
+
     const { error } = await supabase.auth.signUp({
       email,
       password,
