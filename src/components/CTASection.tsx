@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Mail, ArrowRight, Sparkles } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const CTASection = () => {
   return (
@@ -21,10 +22,12 @@ const CTASection = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="secondary" size="lg" className="text-lg px-8 py-6 h-auto font-semibold">
-                <Mail className="mr-2" />
-                Sign Up with School Email
-                <ArrowRight className="ml-2" />
+              <Button variant="secondary" size="lg" className="text-lg px-8 py-6 h-auto font-semibold" asChild>
+                <Link to="/signup">
+                  <Mail className="mr-2" />
+                  Sign Up with School Email
+                  <ArrowRight className="ml-2" />
+                </Link>
               </Button>
             </div>
             

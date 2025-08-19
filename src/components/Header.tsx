@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Users, Menu } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -31,11 +32,11 @@ const Header = () => {
           
           {/* CTA Buttons */}
           <div className="flex items-center space-x-4">
-            <Button variant="ghost" className="hidden sm:inline-flex">
-              Log In
+            <Button variant="ghost" className="hidden sm:inline-flex" asChild>
+              <Link to="/login">Log In</Link>
             </Button>
-            <Button variant="hero" className="hidden sm:inline-flex">
-              Sign Up
+            <Button variant="hero" className="hidden sm:inline-flex" asChild>
+              <Link to="/signup">Sign Up</Link>
             </Button>
             <Button variant="ghost" size="icon" className="md:hidden">
               <Menu className="w-5 h-5" />

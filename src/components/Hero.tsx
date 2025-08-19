@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Users, Mail, Heart, Zap } from "lucide-react";
+import { Link } from "react-router-dom";
 import heroImage from "@/assets/hero-image.jpg";
 
 const Hero = () => {
@@ -34,13 +35,17 @@ const Hero = () => {
         
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-          <Button variant="hero" size="lg" className="text-lg px-8 py-6 h-auto">
-            <Mail className="mr-2" />
-            Get Started with Email
+          <Button variant="hero" size="lg" className="text-lg px-8 py-6 h-auto" asChild>
+            <Link to="/signup">
+              <Mail className="mr-2" />
+              Get Started with Email
+            </Link>
           </Button>
-          <Button variant="outline" size="lg" className="text-lg px-8 py-6 h-auto border-primary/30">
-            <Users className="mr-2" />
-            Browse Students
+          <Button variant="outline" size="lg" className="text-lg px-8 py-6 h-auto border-primary/30" asChild>
+            <Link to="/students">
+              <Users className="mr-2" />
+              Browse Students
+            </Link>
           </Button>
         </div>
         
